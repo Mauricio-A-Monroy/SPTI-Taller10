@@ -7,7 +7,6 @@ import edu.eci.arep.microservice.exception.UserException;
 import edu.eci.arep.microservice.model.Post;
 import edu.eci.arep.microservice.model.User;
 import edu.eci.arep.microservice.repository.PostRepository;
-import jakarta.validation.constraints.Null;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
