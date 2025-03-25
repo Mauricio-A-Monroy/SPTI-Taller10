@@ -7,6 +7,7 @@ import edu.eci.arep.microservice.exception.UserException;
 import edu.eci.arep.microservice.model.Post;
 import edu.eci.arep.microservice.model.User;
 import edu.eci.arep.microservice.repository.PostRepository;
+import jakarta.validation.constraints.Null;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -22,9 +23,9 @@ public class PostService {
     private UserService userService;
 
     public PostDTO createPost(PostDTO postDTO) throws UserException {
-        try {
-            User user = userService.getUserByName(postDTO.getCreator());
-        } catch (UserException e) {
+        User user = userService.getUserByName(postDTO.getCreator());
+
+        if (user == null){
             throw new UserException(UserException.USER_NOT_FOUND);
         }
 
